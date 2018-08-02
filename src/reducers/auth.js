@@ -3,7 +3,8 @@ import {
   CLEAR_AUTH,
   AUTH_REQUEST,
   AUTH_SUCCESS,
-  AUTH_ERROR
+  AUTH_ERROR,
+  SET_USER_IDLE
 } from '../actions/auth';
 
 const initialState = {
@@ -37,6 +38,10 @@ export default function reducer(state = initialState, action) {
     return Object.assign({}, state, {
       loading: false,
       error: action.error
+    });
+  } else if (action.type === SET_USER_IDLE) {
+    return Object.assign({}, state, {
+      isIdle: action.isIdle
     });
   }
   return state;

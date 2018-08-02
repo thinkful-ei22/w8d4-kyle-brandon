@@ -7,12 +7,12 @@ import protectedDataReducer from './reducers/protected-data';
 //import {setAuthToken, refreshAuthToken} from './actions/auth';
 
 const store = createStore(
-    combineReducers({
-        form: formReducer,
-        auth: authReducer,
-        protectedData: protectedDataReducer
-    }),
-    applyMiddleware(thunk)
+  combineReducers({
+    form: formReducer,
+    auth: authReducer,
+    protectedData: protectedDataReducer
+  }),
+  applyMiddleware(thunk)
 );
 
 // Hydrate the authToken from localStorage if it exist
