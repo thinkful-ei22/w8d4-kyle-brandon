@@ -1,6 +1,6 @@
 import {
     SET_AUTH_TOKEN,
-    CLEAR_AUTH,
+   // CLEAR_AUTH,
     AUTH_REQUEST,
     AUTH_SUCCESS,
     AUTH_ERROR
@@ -18,12 +18,14 @@ export default function reducer(state = initialState, action) {
         return Object.assign({}, state, {
             authToken: action.authToken
         });
-    } else if (action.type === CLEAR_AUTH) {
-        return Object.assign({}, state, {
-            authToken: null,
-            currentUser: null
-        });
-    } else if (action.type === AUTH_REQUEST) {
+    } 
+    // else if (action.type === CLEAR_AUTH) {
+    //     return Object.assign({}, state, {
+    //         authToken: null,
+    //         currentUser: null
+    //     });
+    // }
+     else if (action.type === AUTH_REQUEST) {
         return Object.assign({}, state, {
             loading: true,
             error: null
