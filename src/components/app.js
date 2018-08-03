@@ -10,7 +10,7 @@ import IdleModal from './idle-modal';
 import {refreshAuthToken, clearAuth, setUserIdle} from '../actions/auth';
 // import {clearAuth} from '../actions/auth';
 
-const allowedIdleTime = 5 * 60 * 1000; // min * seconds * miliseconds
+const ALLOWED_IDLE_TIME = 5 * 60 * 1000; // min * seconds * miliseconds
 const ONE_MINUTE = 60 * 1000;
 
 export class App extends React.Component {
@@ -61,10 +61,10 @@ export class App extends React.Component {
   }
 
   setIdleTimers() {
-    this.idleLogoutTimer = setTimeout(() => this.logOut(), allowedIdleTime);
+    this.idleLogoutTimer = setTimeout(() => this.logOut(), ALLOWED_IDLE_TIME);
     this.idlePromptTimer = setTimeout(
       () => this.props.dispatch(setUserIdle(true)),
-      allowedIdleTime - ONE_MINUTE
+      ALLOWED_IDLE_TIME - ONE_MINUTE
     );
   }
 
